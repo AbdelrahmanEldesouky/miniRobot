@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+	<node pkg="rosserial_python" type="serial_node.py" name="rosserial" output="screen">
+	  <param name="port" value="/dev/ttyACM0" />
+	  <param name="baud" value="57600" />
+	</node>
+  
+	<node pkg="turtlesim" type="turtle_teleop_key" name="turtlebot_teleop_keyboard"  output="screen" launch-prefix = "xterm -e" required = "true" />
+	
+	<!--node pkg = "Robot_Arduino" type = "odom_basic" name = "odom_basic" /-->
+
+	<node pkg = "Robot_Arduino" type = "odom_translator" name = "odom_translator" />
+	
+	<node pkg = "Robot_Arduino" type = "imu_translator" name = "imu_translator" />
+
+	<node pkg = "Robot_Arduino" type = "teleop_to_cmd" name = "teleop_to_cmd" />
+	
+</launch>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+ 
+	<include file = "$(find Robot_Arduino)/launch/Robot_Arduino.launch"/>
+
+	<include file = "$(find Robot_filterdPose)/launch/Robot_filterdPose.launch"/>
+
+	<include file = "$(find freenect_launch)/launch/freenect.launch">
+	    <arg name = "depth_registration" value = "true"/>
+	</include>
+
+	<include file = "$(find Robot_rtabmap)/launch/Robot_rtabmap.launch"/>
+
+</launch>
